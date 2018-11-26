@@ -7,6 +7,9 @@ class ExamplesController < OpenReadController
   # GET /examples.json
   def index
     @examples = Example.all
+    #if we wanted to limit to cureent_user's ExampleSerializer
+    # inherit from ProtectedController
+    # current_user.examples
 
     render json: @examples
   end
@@ -20,7 +23,11 @@ class ExamplesController < OpenReadController
   # POST /examples
   # POST /examples.json
   def create
+    #TOKEN loooks up current_user
+    # use current_user to build our resource
+    # .build is same as .new
     @example = current_user.examples.build(example_params)
+    # => example with user_id automatically filled in
 
     if @example.save
       render json: @example, status: :created
@@ -48,6 +55,7 @@ class ExamplesController < OpenReadController
   end
 
   def set_example
+    #Only look up examples that belong to current user
     @example = current_user.examples.find(params[:id])
   end
 
