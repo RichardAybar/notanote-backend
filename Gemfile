@@ -9,6 +9,9 @@ gem 'pg', '~> 0.21'
 gem 'puma', '~> 3.11.2'
 gem 'rack-cors', '~> 1.0.2', require: 'rack/cors'
 gem 'rails', '~> 5.2.1'
+gem 'haml', '~> 5.0', '>= 5.0.4'
+gem 'simple_form', '~> 4.1'
+gem 'devise', '~> 4.5'
 
 group :development, :test do
   gem 'byebug', '~> 10.0.0', platform: :mri
