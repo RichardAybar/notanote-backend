@@ -14,6 +14,7 @@ gem 'simple_form', '~> 4.1'
 gem 'devise', '~> 4.5'
 
 group :development, :test do
+  gem 'rails-erd'
   gem 'byebug', '~> 10.0.0', platform: :mri
   gem 'dotenv-rails', '~> 2.2.1'
   gem 'pry', '~> 0.11.3'
