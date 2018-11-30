@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl --include --request GET 'http://localhost:4741/notes'
+curl --include --request GET "http://localhost:4741/notes" \

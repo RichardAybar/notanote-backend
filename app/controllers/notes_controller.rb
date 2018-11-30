@@ -1,21 +1,24 @@
-class NotesController < ApplicationController
+class NotesController < OpenReadController
   before_action :set_note, only: [:show, :update, :destroy]
 
+
+#
   # GET /notes
   def index
-    @notes = Note.all
+    @notes = current_user.notes.all
 
     render json: @notes
   end
 
   # GET /notes/1
   def show
+    @note = Note.find(params[:id])
     render json: @note
   end
 
   # POST /notes
   def create
-    @note = Note.new(note_params)
+    @note = current_user.notes.create(note_params)
 
     if @note.save
       render json: @note, status: :created, location: @note
@@ -41,7 +44,7 @@ class NotesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
-      @note = Note.find(params[:id])
+      @note = current_user.notes.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
