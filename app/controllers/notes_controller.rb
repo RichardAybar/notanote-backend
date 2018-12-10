@@ -18,7 +18,7 @@ class NotesController < OpenReadController
 
   # POST /notes
   def create
-    @note = current_user.notes.create(note_params)
+    @note = current_user.notes.build(note_params)
 
     if @note.save
       render json: @note, status: :created, location: @note

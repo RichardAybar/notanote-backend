@@ -6,8 +6,8 @@ class ExamplesController < OpenReadController
   # GET /examples
   # GET /examples.json
   def index
-    @examples = Examples.all
-    #if we wanted to limit to cureent_user's ExampleSerializer
+    @examples = Example.all
+    # if we wanted to limit to cureent_user's ExampleSerializer
     # inherit from ProtectedController
     # current_user.examples
 
